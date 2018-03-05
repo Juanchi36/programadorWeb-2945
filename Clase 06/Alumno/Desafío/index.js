@@ -113,21 +113,3 @@ function deleteAStudent () {
     console.log('No se encontró al alumno que quiere eliminar')
   }
 }
-//si quiero elminar un elemento en particular
-/*
-var names = ['Juan', 'Pedro', 'Carlos', 'Ana']
-console.log('Names original', names)
-var deleteName = prompt('Ingresa valor a eliminar')
-var index = -1
-
-for(var i = 0; i<names.length; i++){
-    if(deleteName === names[i]){
-        index = i
-    }
-}
-if(index !== -1){
-    names.splice(index, 1)
-}
-
-console.log('Names push',names)
-*/
