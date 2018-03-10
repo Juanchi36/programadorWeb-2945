@@ -77,5 +77,8 @@ function calculator () {
     case 'resta':
     case 'Resta':
       substract()
+      break
+    default:
+      console.log('Operación no válida')
   }
 }
