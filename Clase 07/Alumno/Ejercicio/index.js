@@ -8,7 +8,7 @@ Datos iniciales opcionales:
 var studentsList = ['CARLOS','GERONIMO','NICOLAS','LUCAS','MARIA','FEDERICO','ANTONIO','LORNA','JULIAN','DIEGO','DANIELA','JUAN','MATEO','BARBARA','AGUSTIN','MARIO','MARIEL','ANA','FLORENCIA']
 ```
 */
-
+/*
 var studentsList = [
   'CARLOS',
   'GERONIMO',
@@ -34,7 +34,8 @@ var studentsList = [
 var stringfiedStudents = JSON.stringify(studentsList)
 
 localStorage.setItem('studentsList', stringfiedStudents)
-/*
+*/
+
 var localStudents = localStorage.getItem('studentsList')
 function addNameInLocalStorage () {
   var parsedStudents
@@ -50,4 +51,4 @@ function addNameInLocalStorage () {
   localStorage.setItem('studentsList', stringfiedStudents)
 }
 
-addNameInLocalStorage()*/
+addNameInLocalStorage()
