@@ -1,4 +1,3 @@
-/*
 var studentsList = [
   'CARLOS',
   'GERONIMO',
@@ -23,10 +22,12 @@ var studentsList = [
 
 var stringfiedStudents = JSON.stringify(studentsList)
 localStorage.setItem('studentsList', stringfiedStudents)
-*/
+
 function deleteNameInLocalStorage () {
   var flag = true
-  var nameToSearch = prompt('Ingrese el nombre del alumno que busca')
+  var nameToSearch = prompt(
+    'Ingrese el nombre del alumno que desea eliminar del Local Storage'
+  )
   var nameToSearchUpperCase = nameToSearch.toUpperCase()
   var localStudents = localStorage.getItem('studentsList')
   var indexHit = -1

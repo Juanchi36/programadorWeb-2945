@@ -89,6 +89,7 @@ function showStudents () {
       averageResult +
       '</p>'
     li.className = 'list-group-item'
+    li.id = students[i].dni
     listContainer.appendChild(li)
   }
 }
