@@ -60,9 +60,8 @@ var students = [
   }
 ]
 
-var listContainer
-var studentHit
 showStudents()
+var studentHit
 var name = prompt('Ingrese el alumno a eliminar del DOM')
 var nameLowerCase = name.toLowerCase()
 searchStudentByFirstNameAndLastName(nameLowerCase)
@@ -126,7 +125,7 @@ function showStudents (studentsList) {
   var student
   var rootContainer = document.getElementById('rootContainer')
   rootContainer.innerHTML = '<ul class="list-group" id="list"></ul>'
-  listContainer = document.getElementById('list')
+  var listContainer = document.getElementById('list')
   for (var i = 0; i < students.length; i++) {
     student = students[i]
 
