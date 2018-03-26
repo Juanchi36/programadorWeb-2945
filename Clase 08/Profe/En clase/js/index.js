@@ -44,8 +44,6 @@
 
 // Como mostrar armar un nodoe y appendearlo
 
-var rootContainer = document.getElementById('root')
-
 // <ul class="list-group">
 //   <li class="list-group-item">Cras justo odio</li>
 //   <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -76,6 +74,9 @@ var students = [
     examResults: [ 3, 8, 7, 5, 6, 4, 5, 4, 3 ]
   }
 ]
+// Como mostrar armar un nodoe y appendearlo
+
+var rootContainer = document.getElementById('root')
 
 rootContainer.innerHTML = '<ul class="list-group" id="list"></ul>'
 
