@@ -15,8 +15,10 @@ var strStudentList = JSON.stringify(student)
 localStorage.setItem('studentList', strStudentList)*/
 
 //var students = JSON.parse(studentList)
+document.getElementById('addStudentButton').disabled = true
 var inputName = document.getElementById('firstName')
 var inputDni = document.getElementById('dni')
+var addButton = document.getElementById('addStudentButton')
 addStudentsFromLocalStorage()
 
 function addStudentsFromLocalStorage () {
@@ -50,54 +52,108 @@ function createStudentLi (firstName, dni) {
 inputName.onblur = function (event) {
   var inputName = document.getElementById('firstName')
   var inputNodeName = event.target
-  var value = inputNodeName.value
-  var parentTextInputNode = inputNodeName.parentElement
-  var textErrorNodeName = document.getElementById('textError')
+  valueName = inputNodeName.value
+  var parsedValue = parseInt(valueName)
+  var parentTextInputNodeName = inputNodeName.parentElement
+  var textErrorNodeName = document.getElementById('textErrorName')
   if (textErrorNodeName) {
     parentTextInputNodeName.removeChild(textErrorNodeName)
   }
-  if (value) {
-    inputName.classList.remove('is-invalid')
-    inputName.classList.add('is-valid')
+  if (isNaN(parsedValue)) {
+    if (valueName) {
+      inputName.classList.remove('is-invalid')
+      inputName.classList.add('is-valid')
+    } else {
+      inputName.classList.remove('is-valid')
+      inputName.classList.add('is-invalid')
+      textErrorNodeName = document.createElement('span')
+      textErrorNodeName.id = 'textErrorName'
+      textErrorNodeName.innerHTML =
+        'Debe completar el nombre y apellido del alumno'
+
+      parentTextInputNodeName.appendChild(textErrorNodeName)
+    }
   } else {
     inputName.classList.remove('is-valid')
     inputName.classList.add('is-invalid')
     textErrorNodeName = document.createElement('span')
-    textErrorNodeName.id = 'textError'
-    textErrorNodeName.innerHTML = 'Debe completar este campo'
+    textErrorNodeName.id = 'textErrorName'
+    textErrorNodeName.innerHTML = 'Error al ingresar'
 
-    parentTextInputNode.appendChild(textErrorNodeName)
+    parentTextInputNodeName.appendChild(textErrorNodeName)
   }
+  validateAllFields()
 }
 
 inputDni.onblur = function (event) {
   var inputDni = document.getElementById('dni')
   var inputNodeDni = event.target
-  var value = inputNodeDni.value
+  valueDni = inputNodeDni.value
   var parentTextInputNodeDni = inputNodeDni.parentElement
-  var textErrorNodeDni = document.getElementById('textError')
+  var textErrorNodeDni = document.getElementById('textErrorDni')
+  var parsedValue = parseInt(valueDni)
   if (textErrorNodeDni) {
     parentTextInputNodeDni.removeChild(textErrorNodeDni)
   }
-  if (value) {
-    inputDni.classList.remove('is-invalid')
-    inputDni.classList.add('is-valid')
+  if (!isNaN(parsedValue) && parsedValue > 999999) {
+    if (valueDni) {
+      inputDni.classList.remove('is-invalid')
+      inputDni.classList.add('is-valid')
+    } else {
+      inputDni.classList.remove('is-valid')
+      inputDni.classList.add('is-invalid')
+      textErrorNodeDni = document.createElement('span')
+      textErrorNodeDni.id = 'textErrorDni'
+      textErrorNodeDni.innerHTML = 'Debe completar el DNI del alumno'
+
+      parentTextInputNodeDni.appendChild(textErrorNodeDni)
+    }
   } else {
     inputDni.classList.remove('is-valid')
     inputDni.classList.add('is-invalid')
     textErrorNodeDni = document.createElement('span')
-    textErrorNodeDni.id = 'textError'
-    textErrorNodeDni.innerHTML = 'Debe completar este campo'
+    textErrorNodeDni.id = 'textErrorDni'
+    textErrorNodeDni.innerHTML =
+      'El Dni debe ser un número de siete cifras o mas'
 
-    parentTextInputNode.appendChild(textErrorNodeDni)
+    parentTextInputNodeDni.appendChild(textErrorNodeDni)
+  }
+  validateAllFields()
+}
+function validateAllFields () {
+  var submitButton = document.getElementById('addStudentButton')
+  var validFields = document.getElementsByClassName('is-valid')
+  if (validFields && validFields.length === 2) {
+    submitButton.disabled = false
+  } else {
+    submitButton.disabled = true
   }
 }
 
-function addButton () {
-  var firstName = document.getElementById('firstName')
-  var dni = document.getElementById('dni')
-  parsedStudentsList.push([ { firstname, dni } ])
-  console.log(parsedStudents)
-  var stringfiedStudents = JSON.stringify(parsedStudents)
+addButton.onclick = function (event) {
+  var firstName = valueName
+  var dni = valueDni
+  parsedStudentsList.push({ firstName, dni })
+  console.log(parsedStudentsList)
+  var stringfiedStudents = JSON.stringify(parsedStudentsList)
   localStorage.setItem('studentsList', stringfiedStudents)
+  var localStudentsList = localStorage.getItem('studentList')
+  var listContainer = document.getElementById('mainList')
+  while (listContainer.hasChildNodes()) {
+    listContainer.removeChild(listContainer.firstChild)
+  }
+  showStudents()
+  resetFields()
+  var strStudentList = JSON.stringify(parsedStudentsList)
+  localStorage.setItem('studentList', strStudentList)
+}
+
+function resetFields () {
+  var firstNameClass = document.getElementById('firstName')
+  var dniClass = document.getElementById('dni')
+  document.getElementById('addStudentButton').disabled = true
+  firstNameClass.classList.remove('is-valid')
+  dniClass.classList.remove('is-valid')
+  firstNameClass.value = ''
+  dniClass.value = ''
 }
