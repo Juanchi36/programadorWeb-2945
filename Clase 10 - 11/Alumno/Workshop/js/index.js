@@ -1,23 +1,30 @@
 //Carga inicial para pruebas
 
-/*var student = [
-  {
-    firstName: 'Javier',
-    dni: 34567829
-  },
-  {
-    firstName: 'Pablo',
-    dni: 34556829
-  }
-]
-var strStudentList = JSON.stringify(student)
+// var student = [
+//   {
+//     firstName: 'Javier',
+//     lastName: 'Perez',
+//     dni: 34567829,
+//     email: 'javi@gmail.com'
+//   },
+//   {
+//     firstName: 'Pablo',
+//     lastName: 'Perez',
+//     dni: 34556829,
+//     email: 'amarilla@hotmail.com'
+//   }
+// ]
+// var strStudentList = JSON.stringify(student)
 
-localStorage.setItem('studentList', strStudentList)*/
+// localStorage.setItem('studentList', strStudentList)
 
-//var students = JSON.parse(studentList)
+//Defino variables locales, deshabilito los botones y cargo los datos del LocalStorage
+
 document.getElementById('addStudentButton').disabled = true
 document.getElementById('deleteStudentButton').disabled = true
 var inputName = document.getElementById('firstName')
+var inputEmail = document.getElementById('email')
+var inputLastName = document.getElementById('lastName')
 var inputDni = document.getElementById('dni')
 var addButton = document.getElementById('addStudentButton')
 var deleteButton = document.getElementById('deleteStudentButton')
@@ -39,18 +46,35 @@ function showStudents () {
   var listContainer = document.getElementById('mainList')
   for (var i = 0; i < parsedStudentsList.length; i++) {
     student = parsedStudentsList[i]
-    var liStudent = createStudentLi(student.firstName, student.dni)
+    var liStudent = createStudentLi(
+      student.firstName,
+      student.lastName,
+      student.dni,
+      student.email
+    )
     listContainer.appendChild(liStudent)
   }
 }
 
-function createStudentLi (firstName, dni) {
+function createStudentLi (firstName, lastName, dni, email) {
   var li = document.createElement('li')
   li.className = 'list-group-item '
   li.id = dni
-  li.innerHTML = '<h2>' + firstName + '</h2><h4>DNI: ' + dni + '</h4>'
+  li.innerHTML =
+    '<h2>' +
+    firstName +
+    '</h2><h3>' +
+    lastName +
+    '</h3><h4>DNI: ' +
+    dni +
+    '</h4>' +
+    '<h5>' +
+    email +
+    '</h5>'
   return li
 }
+
+// Campo Nombre
 
 inputName.onblur = function (event) {
   document.getElementById('deleteDni').disabled = true
@@ -72,8 +96,7 @@ inputName.onblur = function (event) {
       inputName.classList.add('is-invalid')
       textErrorNodeName = document.createElement('span')
       textErrorNodeName.id = 'textErrorName'
-      textErrorNodeName.innerHTML = 'Debe completar el nombre y apellido'
-
+      textErrorNodeName.innerHTML = 'Debe completar el nombre'
       parentTextInputNodeName.appendChild(textErrorNodeName)
     }
   } else {
@@ -82,11 +105,48 @@ inputName.onblur = function (event) {
     textErrorNodeName = document.createElement('span')
     textErrorNodeName.id = 'textErrorName'
     textErrorNodeName.innerHTML = 'Error al ingresar'
-
     parentTextInputNodeName.appendChild(textErrorNodeName)
   }
   validateAllFields()
 }
+
+// Campo Apellido
+
+inputLastName.onblur = function (event) {
+  document.getElementById('deleteDni').disabled = true
+  var inputLastName = document.getElementById('lastName')
+  var inputNodeLastName = event.target
+  valueLastName = inputNodeLastName.value
+  var parsedValue = parseInt(valueLastName)
+  var parentTextInputNodeName = inputNodeLastName.parentElement
+  var textErrorNodeLastName = document.getElementById('textErrorLastName')
+  if (textErrorNodeLastName) {
+    parentTextInputNodeName.removeChild(textErrorNodeLastName)
+  }
+  if (isNaN(parsedValue)) {
+    if (valueLastName) {
+      inputLastName.classList.remove('is-invalid')
+      inputLastName.classList.add('is-valid')
+    } else {
+      inputLastName.classList.remove('is-valid')
+      inputLastName.classList.add('is-invalid')
+      textErrorNodeLastName = document.createElement('span')
+      textErrorNodeLastName.id = 'textErrorLastName'
+      textErrorNodeLastName.innerHTML = 'Debe completar el apellido'
+      parentTextInputNodeName.appendChild(textErrorNodeLastName)
+    }
+  } else {
+    inputLastName.classList.remove('is-valid')
+    inputLastName.classList.add('is-invalid')
+    textErrorNodeLastName = document.createElement('span')
+    textErrorNodeLastName.id = 'textErrorName'
+    textErrorNodeLastName.innerHTML = 'Error al ingresar'
+    parentTextInputNodeName.appendChild(textErrorNodeLastName)
+  }
+  validateAllFields()
+}
+
+// Campo DNI
 
 inputDni.onblur = function (event) {
   document.getElementById('deleteDni').disabled = true
@@ -107,7 +167,7 @@ inputDni.onblur = function (event) {
     if (valueDni) {
       for (var i = 0; i < parsedStudentsList.length; i++) {
         var student = parsedStudentsList[i]
-        var dni = student.dni
+        var dni = student.dni.toString()
         if (valueDni === dni) {
           inputDni.classList.remove('is-valid')
           inputDni.classList.add('is-invalid')
@@ -127,7 +187,6 @@ inputDni.onblur = function (event) {
       textErrorNodeDni = document.createElement('span')
       textErrorNodeDni.id = 'textErrorDni'
       textErrorNodeDni.innerHTML = 'Debe completar el DNI del alumno'
-
       parentTextInputNodeDni.appendChild(textErrorNodeDni)
     }
   } else {
@@ -137,11 +196,43 @@ inputDni.onblur = function (event) {
     textErrorNodeDni.id = 'textErrorDni'
     textErrorNodeDni.innerHTML =
       'Debe ingresar un número de siete o mas cifras '
-
     parentTextInputNodeDni.appendChild(textErrorNodeDni)
   }
   validateAllFields()
 }
+
+// Campo e-mail
+
+inputEmail.onblur = function (event) {
+  document.getElementById('deleteDni').disabled = true
+  var inputEmail = document.getElementById('email')
+  var inputNodeEmail = event.target
+  valueEmail = inputNodeEmail.value
+  var parentTextInputNodeEmail = inputNodeEmail.parentElement
+  var textErrorNodeEmail = document.getElementById('textErrorEmail')
+  if (textErrorNodeEmail) {
+    parentTextInputNodeEmail.removeChild(textErrorNodeEmail)
+  }
+  if (
+    valueEmail &&
+    valueEmail.indexOf('@') !== -1 &&
+    valueEmail.indexOf('.') !== -1
+  ) {
+    inputEmail.classList.remove('is-invalid')
+    inputEmail.classList.add('is-valid')
+  } else {
+    console.log('dentro del else')
+    inputEmail.classList.remove('is-valid')
+    inputEmail.classList.add('is-invalid')
+    textErrorNodeEmail = document.createElement('span')
+    textErrorNodeEmail.id = 'textErrorEmail'
+    textErrorNodeEmail.innerHTML = 'Email invalido'
+    parentTextInputNodeEmail.appendChild(textErrorNodeEmail)
+  }
+
+  validateAllFields()
+}
+
 searchDni = function (id) {
   document.getElementById('mainList')
   var dniHit = document.getElementById(id)
@@ -153,6 +244,8 @@ searchDni = function (id) {
 deleteDni.onblur = function (event) {
   document.getElementById('firstName').disabled = true
   document.getElementById('dni').disabled = true
+  document.getElementById('lastName').disabled = true
+  document.getElementById('email').disabled = true
   var deletDni = document.getElementById('deleteDni')
   var inputNodeDni = event.target
   valueDeleteDni = inputNodeDni.value
@@ -192,7 +285,7 @@ deleteDni.onblur = function (event) {
 function validateAllFields () {
   var submitButton = document.getElementById('addStudentButton')
   var validFields = document.getElementsByClassName('is-valid')
-  if (validFields && validFields.length === 2) {
+  if (validFields && validFields.length === 4) {
     submitButton.disabled = false
   } else {
     submitButton.disabled = true
@@ -202,7 +295,9 @@ function validateAllFields () {
 addButton.onclick = function (event) {
   var firstName = valueName
   var dni = valueDni
-  parsedStudentsList.push({ firstName, dni })
+  var lastName = valueLastName
+  var email = valueEmail
+  parsedStudentsList.push({ firstName, lastName, dni, email })
   var stringfiedStudents = JSON.stringify(parsedStudentsList)
   localStorage.setItem('studentsList', stringfiedStudents)
   var localStudentsList = localStorage.getItem('studentList')
@@ -219,25 +314,34 @@ addButton.onclick = function (event) {
 function resetAddFields () {
   document.getElementById('deleteDni').disabled = false
   var firstNameClass = document.getElementById('firstName')
+  var lastNameClass = document.getElementById('lastName')
+  var emailNameClass = document.getElementById('email')
   var dniClass = document.getElementById('dni')
   document.getElementById('addStudentButton').disabled = true
   firstNameClass.classList.remove('is-valid')
+  lastNameClass.classList.remove('is-valid')
+  emailNameClass.classList.remove('is-valid')
   dniClass.classList.remove('is-valid')
   firstNameClass.value = ''
   dniClass.value = ''
+  lastNameClass.value = ''
+  emailNameClass.value = ''
 }
 
 deleteButton.onclick = function (event) {
   var indexDni = -1
   for (var i = 0; i < parsedStudentsList.length; i++) {
     var student = parsedStudentsList[i]
-    if (student.dni === dniHit) {
+    var dniStrg = student.dni.toString()
+    if (dniStrg === dniHit) {
       indexDni = i
       parsedStudentsList.splice(indexDni, 1)
       break
     }
   }
+  console.log(parsedStudentsList)
   deleteStudent(dniHit)
+  console.log(parsedStudentsList)
   var stringfiedStudents = JSON.stringify(parsedStudentsList)
   localStorage.setItem('studentList', stringfiedStudents)
 
@@ -258,6 +362,8 @@ function deleteStudent (dni) {
 function resetDelField () {
   document.getElementById('firstName').disabled = false
   document.getElementById('dni').disabled = false
+  document.getElementById('lastName').disabled = false
+  document.getElementById('email').disabled = false
   var dniClass = document.getElementById('deleteDni')
   document.getElementById('deleteStudentButton').disabled = true
   dniClass.classList.remove('is-valid')
