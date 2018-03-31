@@ -174,22 +174,22 @@ inputDni.onblur = function (event) {
       if (parsedStudentsList.length === 0) {
         inputDni.classList.remove('is-invalid')
         inputDni.classList.add('is-valid')
-      }
-      for (var i = 0; i < parsedStudentsList.length; i++) {
-        console.log(student.dni.toString())
-        var student = parsedStudentsList[i]
-        var dni = student.dni.toString()
-        if (valueDni === dni) {
-          inputDni.classList.remove('is-valid')
-          inputDni.classList.add('is-invalid')
-          textErrorNodeDniExist = document.createElement('span')
-          textErrorNodeDniExist.id = 'textErrorDniExist'
-          textErrorNodeDniExist.innerHTML = 'Dni existente'
-          parentTextInputNodeDni.appendChild(textErrorNodeDniExist)
-          break
-        } else {
-          inputDni.classList.remove('is-invalid')
-          inputDni.classList.add('is-valid')
+      } else {
+        for (var i = 0; i < parsedStudentsList.length; i++) {
+          var student = parsedStudentsList[i]
+          var dni = student.dni.toString()
+          if (valueDni === dni) {
+            inputDni.classList.remove('is-valid')
+            inputDni.classList.add('is-invalid')
+            textErrorNodeDniExist = document.createElement('span')
+            textErrorNodeDniExist.id = 'textErrorDniExist'
+            textErrorNodeDniExist.innerHTML = 'Dni existente'
+            parentTextInputNodeDni.appendChild(textErrorNodeDniExist)
+            break
+          } else {
+            inputDni.classList.remove('is-invalid')
+            inputDni.classList.add('is-valid')
+          }
         }
       }
     } else {
@@ -339,14 +339,14 @@ addButton.onclick = function (event) {
   var stringfiedStudents = JSON.stringify(parsedStudentsList)
   localStorage.setItem('studentsList', stringfiedStudents)
   var localStudentsList = localStorage.getItem('studentList')
+  var strStudentList = JSON.stringify(parsedStudentsList)
+  localStorage.setItem('studentList', strStudentList)
   var listContainer = document.getElementById('mainList')
   while (listContainer.hasChildNodes()) {
     listContainer.removeChild(listContainer.firstChild)
   }
   showStudents()
   resetAddFields()
-  var strStudentList = JSON.stringify(parsedStudentsList)
-  localStorage.setItem('studentList', strStudentList)
 }
 
 // Botón Eliminar alumno
