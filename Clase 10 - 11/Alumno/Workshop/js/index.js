@@ -171,7 +171,12 @@ inputDni.onblur = function (event) {
   }
   if (!isNaN(parsedValue) && parsedValue > 999999) {
     if (valueDni) {
+      if (parsedStudentsList.length === 0) {
+        inputDni.classList.remove('is-invalid')
+        inputDni.classList.add('is-valid')
+      }
       for (var i = 0; i < parsedStudentsList.length; i++) {
+        console.log(student.dni.toString())
         var student = parsedStudentsList[i]
         var dni = student.dni.toString()
         if (valueDni === dni) {
