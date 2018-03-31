@@ -18,10 +18,11 @@
 
 // localStorage.setItem('studentList', strStudentList)
 
-//Defino variables locales, deshabilito los botones y cargo los datos del LocalStorage
+//Defino variables locales, deshabilito los botones y cargo los datos del LocalStorage, y los muestro
 
 document.getElementById('addStudentButton').disabled = true
 document.getElementById('deleteStudentButton').disabled = true
+document.getElementById('searchStudentButton').disabled = true
 var inputName = document.getElementById('firstName')
 var inputEmail = document.getElementById('email')
 var inputLastName = document.getElementById('lastName')
@@ -29,6 +30,8 @@ var inputDni = document.getElementById('dni')
 var addButton = document.getElementById('addStudentButton')
 var deleteButton = document.getElementById('deleteStudentButton')
 var deleteDni = document.getElementById('deleteDni')
+var searchName = document.getElementById('searchText')
+var searchButton = document.getElementById('searchStudentButton')
 addStudentsFromLocalStorage()
 
 function addStudentsFromLocalStorage () {
@@ -78,6 +81,7 @@ function createStudentLi (firstName, lastName, dni, email) {
 
 inputName.onblur = function (event) {
   document.getElementById('deleteDni').disabled = true
+  document.getElementById('searchText').disabled = true
   var inputName = document.getElementById('firstName')
   var inputNodeName = event.target
   valueName = inputNodeName.value
@@ -114,6 +118,7 @@ inputName.onblur = function (event) {
 
 inputLastName.onblur = function (event) {
   document.getElementById('deleteDni').disabled = true
+  document.getElementById('searchText').disabled = true
   var inputLastName = document.getElementById('lastName')
   var inputNodeLastName = event.target
   valueLastName = inputNodeLastName.value
@@ -150,6 +155,7 @@ inputLastName.onblur = function (event) {
 
 inputDni.onblur = function (event) {
   document.getElementById('deleteDni').disabled = true
+  document.getElementById('searchText').disabled = true
   var inputDni = document.getElementById('dni')
   var inputNodeDni = event.target
   valueDni = inputNodeDni.value
@@ -205,6 +211,7 @@ inputDni.onblur = function (event) {
 
 inputEmail.onblur = function (event) {
   document.getElementById('deleteDni').disabled = true
+  document.getElementById('searchText').disabled = true
   var inputEmail = document.getElementById('email')
   var inputNodeEmail = event.target
   valueEmail = inputNodeEmail.value
@@ -233,19 +240,14 @@ inputEmail.onblur = function (event) {
   validateAllFields()
 }
 
-searchDni = function (id) {
-  document.getElementById('mainList')
-  var dniHit = document.getElementById(id)
-  if (dniHit) {
-    var dniHited = dniHit.id
-    return dniHited
-  }
-}
+// Campo eliminar por DNI
+
 deleteDni.onblur = function (event) {
   document.getElementById('firstName').disabled = true
   document.getElementById('dni').disabled = true
   document.getElementById('lastName').disabled = true
   document.getElementById('email').disabled = true
+  document.getElementById('searchText').disabled = true
   var deletDni = document.getElementById('deleteDni')
   var inputNodeDni = event.target
   valueDeleteDni = inputNodeDni.value
@@ -282,15 +284,47 @@ deleteDni.onblur = function (event) {
   }
 }
 
-function validateAllFields () {
-  var submitButton = document.getElementById('addStudentButton')
-  var validFields = document.getElementsByClassName('is-valid')
-  if (validFields && validFields.length === 4) {
-    submitButton.disabled = false
+// Campo Buscar alumno
+
+searchName.onblur = function (event) {
+  document.getElementById('firstName').disabled = true
+  document.getElementById('dni').disabled = true
+  document.getElementById('lastName').disabled = true
+  document.getElementById('email').disabled = true
+  document.getElementById('deleteDni').disabled = true
+  document.getElementById('searchText')
+  var inputNodeSearch = event.target
+  searchValue = inputNodeSearch.value
+  var parentTextInputNodeSearch = inputNodeSearch.parentElement
+  var textErrorSearch = document.getElementById('textErrorSearch')
+  var parsedValue = parseInt(searchValue)
+  if (textErrorSearch) {
+    parentTextInputNodeSearch.removeChild(textErrorSearch)
+  }
+  if (isNaN(parsedValue)) {
+    if (searchValue) {
+      searchName.classList.remove('is-invalid')
+      searchName.classList.add('is-valid')
+      document.getElementById('searchStudentButton').disabled = false
+    } else {
+      searchName.classList.remove('is-valid')
+      searchName.classList.add('is-invalid')
+      textErrorSearch = document.createElement('span')
+      textErrorSearch.id = 'textErrorSearch'
+      textErrorSearch.innerHTML = 'Debe completar el nombre'
+      parentTextInputNodeSearch.appendChild(textErrorSearch)
+    }
   } else {
-    submitButton.disabled = true
+    searchName.classList.remove('is-valid')
+    searchName.classList.add('is-invalid')
+    textErrorSearch = document.createElement('span')
+    textErrorSearch.id = 'textErrorSearch'
+    textErrorSearch.innerHTML = 'Error al ingresar'
+    parentTextInputNodeSearch.appendChild(textErrorSearch)
   }
 }
+
+// Botón Agregar alumno
 
 addButton.onclick = function (event) {
   var firstName = valueName
@@ -311,22 +345,7 @@ addButton.onclick = function (event) {
   localStorage.setItem('studentList', strStudentList)
 }
 
-function resetAddFields () {
-  document.getElementById('deleteDni').disabled = false
-  var firstNameClass = document.getElementById('firstName')
-  var lastNameClass = document.getElementById('lastName')
-  var emailNameClass = document.getElementById('email')
-  var dniClass = document.getElementById('dni')
-  document.getElementById('addStudentButton').disabled = true
-  firstNameClass.classList.remove('is-valid')
-  lastNameClass.classList.remove('is-valid')
-  emailNameClass.classList.remove('is-valid')
-  dniClass.classList.remove('is-valid')
-  firstNameClass.value = ''
-  dniClass.value = ''
-  lastNameClass.value = ''
-  emailNameClass.value = ''
-}
+// Botón Eliminar alumno
 
 deleteButton.onclick = function (event) {
   var indexDni = -1
@@ -353,12 +372,80 @@ deleteButton.onclick = function (event) {
   showStudents()
   resetDelField()
 }
+
+// Botón Buscar alumno
+
+searchButton.onclick = function (event) {
+  var searchListContainer = document.getElementById('searchList')
+  while (searchListContainer.hasChildNodes()) {
+    searchListContainer.removeChild(searchListContainer.firstChild)
+  }
+  var listContainer = document.getElementById('searchList')
+  var index = searchStudentByName(searchValue)
+  console.log(flag)
+  if (!flag) {
+    student = parsedStudentsList[index]
+    var liStudent = createStudentLi(
+      student.firstName,
+      student.lastName,
+      student.dni,
+      student.email
+    )
+    listContainer.appendChild(liStudent)
+  }
+  resetDelField()
+  resetAddFields()
+}
+
+// FUNCIONES
+
+function searchDni (id) {
+  document.getElementById('mainList')
+  var dniHit = document.getElementById(id)
+  if (dniHit) {
+    var dniHited = dniHit.id
+    return dniHited
+  }
+}
+
+function validateAllFields () {
+  var submitButton = document.getElementById('addStudentButton')
+  var validFields = document.getElementsByClassName('is-valid')
+  if (validFields && validFields.length === 4) {
+    submitButton.disabled = false
+  } else {
+    submitButton.disabled = true
+  }
+}
+
+function resetAddFields () {
+  document.getElementById('deleteDni').disabled = false
+  var firstNameClass = document.getElementById('firstName')
+  var lastNameClass = document.getElementById('lastName')
+  var emailNameClass = document.getElementById('email')
+  var dniClass = document.getElementById('dni')
+  document.getElementById('addStudentButton').disabled = true
+  firstNameClass.classList.remove('is-valid')
+  lastNameClass.classList.remove('is-valid')
+  emailNameClass.classList.remove('is-valid')
+  dniClass.classList.remove('is-valid')
+  firstNameClass.value = ''
+  dniClass.value = ''
+  lastNameClass.value = ''
+  emailNameClass.value = ''
+  document.getElementById('searchText').disabled = false
+  var searchClass = document.getElementById('searchText')
+  searchClass.classList.remove('is-valid')
+  searchClass.value = ''
+}
+
 function deleteStudent (dni) {
   var dniToDelete = parseInt(dni)
   var listContainer = document.getElementById('mainList')
   var studentNode = document.getElementById(dniToDelete)
   listContainer.removeChild(studentNode)
 }
+
 function resetDelField () {
   document.getElementById('firstName').disabled = false
   document.getElementById('dni').disabled = false
@@ -368,4 +455,31 @@ function resetDelField () {
   document.getElementById('deleteStudentButton').disabled = true
   dniClass.classList.remove('is-valid')
   dniClass.value = ''
+  document.getElementById('searchText').disabled = false
+}
+
+function searchStudentByName (name) {
+  flag = true
+  var indexHit = -1
+  for (var i = 0; i < parsedStudentsList.length; i++) {
+    var student = parsedStudentsList[i]
+    var firstName = student.firstName.toLowerCase()
+    var lastName = student.lastName.toLowerCase()
+    var nameToSearch = name.toLowerCase()
+    if (
+      firstName.indexOf(nameToSearch) !== -1 ||
+      lastName.indexOf(nameToSearch) !== -1
+    ) {
+      flag = false
+      indexHit = i
+      return indexHit
+    }
+  }
+  if (flag) {
+    var listContainer = document.getElementById('searchList')
+    var h5 = document.createElement('h5')
+    h5.id = 'searchError'
+    h5.innerHTML = 'No hubo coincidencias en la busqueda'
+    listContainer.appendChild(h5)
+  }
 }
