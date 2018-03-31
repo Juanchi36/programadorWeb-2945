@@ -18,7 +18,7 @@
 
 // localStorage.setItem('studentList', strStudentList)
 
-//Defino variables locales, deshabilito los botones y cargo los datos del LocalStorage, y los muestro
+//Defino variables locales, deshabilito los botones, cargo los datos del LocalStorage, y los muestro
 
 document.getElementById('addStudentButton').disabled = true
 document.getElementById('deleteStudentButton').disabled = true
@@ -228,7 +228,6 @@ inputEmail.onblur = function (event) {
     inputEmail.classList.remove('is-invalid')
     inputEmail.classList.add('is-valid')
   } else {
-    console.log('dentro del else')
     inputEmail.classList.remove('is-valid')
     inputEmail.classList.add('is-invalid')
     textErrorNodeEmail = document.createElement('span')
