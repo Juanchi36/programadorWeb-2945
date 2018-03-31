@@ -358,9 +358,7 @@ deleteButton.onclick = function (event) {
       break
     }
   }
-  console.log(parsedStudentsList)
   deleteStudent(dniHit)
-  console.log(parsedStudentsList)
   var stringfiedStudents = JSON.stringify(parsedStudentsList)
   localStorage.setItem('studentList', stringfiedStudents)
 
@@ -382,7 +380,6 @@ searchButton.onclick = function (event) {
   }
   var listContainer = document.getElementById('searchList')
   var index = searchStudentByName(searchValue)
-  console.log(flag)
   if (!flag) {
     student = parsedStudentsList[index]
     var liStudent = createStudentLi(
