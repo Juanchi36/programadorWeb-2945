@@ -1,4 +1,4 @@
-//Carga inicial para pruebas
+// Carga inicial para pruebas
 
 // var student = [
 //   {
@@ -12,6 +12,12 @@
 //     lastName: 'Perez',
 //     dni: 34556829,
 //     email: 'amarilla@hotmail.com'
+//   },
+//   {
+//     firstName: 'Carlos',
+//     lastName: 'Scasciotta',
+//     dni: 12789456,
+//     email: 'carlitos@gmail.com'
 //   }
 // ]
 // var strStudentList = JSON.stringify(student)
@@ -205,8 +211,7 @@ inputDni.onblur = function (event) {
     inputDni.classList.add('is-invalid')
     textErrorNodeDni = document.createElement('span')
     textErrorNodeDni.id = 'textErrorDni'
-    textErrorNodeDni.innerHTML =
-      'Debe ingresar un número de siete o mas cifras '
+    textErrorNodeDni.innerHTML = 'Ingresar un número de siete o mas cifras '
     parentTextInputNodeDni.appendChild(textErrorNodeDni)
   }
   validateAllFields()
