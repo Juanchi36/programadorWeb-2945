@@ -14,43 +14,32 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <link rel="tab icon" href="./favicon.png">
-  <title>Clase 09 - Desafío</title>
+  <title>Clase 12 - Desafío</title>
 </head>
 
 <body>
-  <div style="width: 30%; margin: 50px auto">
+  <div style="width: 80%; margin: 50px auto">
     <form>
-      <div class="form-group">
+        <div class="form-row">
+      <div class="form-group col-md-6">
         <label for="firstName" style="width: 100%">
           <input type="text" class="form-control" id="firstName" placeholder="Nombre" >
         </label>
       </div>
-      <div class="form-group">
-        <label for="lastName" style="width: 100%">
-          <input type="text" class="form-control" id="lastName" placeholder="Apellido">
-        </label>
-      </div>
-      <div class="form-group">
+      <div class="form-group col-md-6">
         <label for="email" style="width: 100%">
           <input type="email" class="form-control" id="email" placeholder="Email">
         </label>
       </div>
-      <div class="form-group">
-        <label for="password1" style="width: 100%">
-          <input type="text" class="form-control" id="password1" placeholder="Contraseña">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="comments" style="width: 100%">
+          <textarea  class="form-control" id="comments" placeholder="Comentarios" rows="3"></textarea>
         </label>
       </div>
-      <div class="form-group">
-        <label for="password2" style="width: 100%">
-          <input type="text" class="form-control" id="password2" placeholder="Confirmar contraseña">
-        </label>
-      </div>
-      <div class="form-group">
-        <label for="age" style="width: 100%">
-          <input type="number" class="form-control" id="age" placeholder="Edad">
-        </label>
-      </div>
-      <button type="submit" class="btn btn-primary" style="width: 100%" disabled id="submitButton">Enviar info</button>
+    </div>
+      <button type="submit" class="btn btn-dark" style="width: 100%" disabled id="submitButton">Enviar info</button>
     </form>
   </div>
   <script src="./js/index.js"></script>

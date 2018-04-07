@@ -1,0 +1,48 @@
+{
+  "name": "programador-web-2945",
+  "version": "1.0.0",
+  "description": "Curso de programador web sábados",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrianc4/programadorWeb-2945.git"
+  },
+  "author": "Adrián Ferré",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adrianc4/programadorWeb-2945/issues"
+  },
+  "homepage": "https://github.com/adrianc4/programadorWeb-2945#readme",
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "commonjs": true,
+      "jquery": true
+    },
+    "extends": [
+      "standard",
+      "jquery"
+    ],
+    "rules": {
+      "space-in-parens": [0],
+      "space-before-function-paren": [0],
+      "quotes": ["error", "single"],
+     "computed-property-spacing": [0],
+     "semi":[0]
+    }
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-jquery": "^1.0.1"
+  },
+  "dependencies": {
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}
