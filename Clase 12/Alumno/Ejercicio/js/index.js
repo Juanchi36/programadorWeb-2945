@@ -26,7 +26,4 @@ squaresNodes.click(function (event) {
     squaresNodes.addClass('square')
     console.log('fin')
   }
-
-  console.log(squareNode)
-  // }
 })
