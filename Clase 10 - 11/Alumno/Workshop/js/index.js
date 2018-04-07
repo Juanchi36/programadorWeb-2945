@@ -15,11 +15,12 @@
 //   },
 //   {
 //     firstName: 'Carlos',
-//     lastName: 'Scasciotta',
+//     lastName: 'Lopez',
 //     dni: 12789456,
 //     email: 'carlitos@gmail.com'
 //   }
 // ]
+
 // var strStudentList = JSON.stringify(student)
 
 // localStorage.setItem('studentsList', strStudentList)
@@ -91,7 +92,7 @@ inputName.onblur = function (event) {
   var inputName = document.getElementById('firstName')
   var inputNodeName = event.target
   valueName = inputNodeName.value
-  var parsedValue = parseInt(valueName)
+  var parsedValue = parseInt(valueName, 10)
   var parentTextInputNodeName = inputNodeName.parentElement
   var textErrorNodeName = document.getElementById('textErrorName')
   if (textErrorNodeName) {
@@ -128,7 +129,7 @@ inputLastName.onblur = function (event) {
   var inputLastName = document.getElementById('lastName')
   var inputNodeLastName = event.target
   valueLastName = inputNodeLastName.value
-  var parsedValue = parseInt(valueLastName)
+  var parsedValue = parseInt(valueLastName, 10)
   var parentTextInputNodeName = inputNodeLastName.parentElement
   var textErrorNodeLastName = document.getElementById('textErrorLastName')
   if (textErrorNodeLastName) {
@@ -168,7 +169,7 @@ inputDni.onblur = function (event) {
   var parentTextInputNodeDni = inputNodeDni.parentElement
   var textErrorNodeDni = document.getElementById('textErrorDni')
   var textErrorNodeDniExist = document.getElementById('textErrorDniExist')
-  var parsedValue = parseInt(valueDni)
+  var parsedValue = parseInt(valueDni, 10)
   if (textErrorNodeDni) {
     parentTextInputNodeDni.removeChild(textErrorNodeDni)
   }
@@ -219,7 +220,7 @@ inputDni.onblur = function (event) {
 
 // Campo e-mail
 
-inputEmail.onblur = function (event) {
+inputEmail.oninput = function (event) {
   document.getElementById('deleteDni').disabled = true
   document.getElementById('searchText').disabled = true
   var inputEmail = document.getElementById('email')
@@ -251,7 +252,7 @@ inputEmail.onblur = function (event) {
 
 // Campo eliminar por DNI
 
-deleteDni.onblur = function (event) {
+deleteDni.oninput = function (event) {
   document.getElementById('firstName').disabled = true
   document.getElementById('dni').disabled = true
   document.getElementById('lastName').disabled = true
@@ -262,7 +263,7 @@ deleteDni.onblur = function (event) {
   valueDeleteDni = inputNodeDni.value
   var parentTextInputNodeDni = inputNodeDni.parentElement
   var textErrorNodeDni = document.getElementById('textErrorDni')
-  var parsedValue = parseInt(valueDeleteDni)
+  var parsedValue = parseInt(valueDeleteDni, 10)
   if (textErrorNodeDni) {
     parentTextInputNodeDni.removeChild(textErrorNodeDni)
   }
@@ -295,7 +296,7 @@ deleteDni.onblur = function (event) {
 
 // Campo Buscar alumno
 
-searchName.onblur = function (event) {
+searchName.oninput = function (event) {
   document.getElementById('firstName').disabled = true
   document.getElementById('dni').disabled = true
   document.getElementById('lastName').disabled = true
@@ -306,7 +307,7 @@ searchName.onblur = function (event) {
   searchValue = inputNodeSearch.value
   var parentTextInputNodeSearch = inputNodeSearch.parentElement
   var textErrorSearch = document.getElementById('textErrorSearch')
-  var parsedValue = parseInt(searchValue)
+  var parsedValue = parseInt(searchValue, 10)
   if (textErrorSearch) {
     parentTextInputNodeSearch.removeChild(textErrorSearch)
   }
@@ -337,7 +338,7 @@ searchName.onblur = function (event) {
 
 addButton.onclick = function (event) {
   var firstName = valueName
-  var dni = valueDni
+  var dni = parseInt(valueDni, 10)
   var lastName = valueLastName
   var email = valueEmail
   parsedStudentsList.push({ firstName, lastName, dni, email })
@@ -446,7 +447,7 @@ function resetAddFields () {
 }
 
 function deleteStudent (dni) {
-  var dniToDelete = parseInt(dni)
+  var dniToDelete = parseInt(dni, 10)
   var listContainer = document.getElementById('mainList')
   var studentNode = document.getElementById(dniToDelete)
   listContainer.removeChild(studentNode)
