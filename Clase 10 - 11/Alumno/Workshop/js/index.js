@@ -22,7 +22,7 @@
 // ]
 // var strStudentList = JSON.stringify(student)
 
-// localStorage.setItem('studentList', strStudentList)
+// localStorage.setItem('studentsList', strStudentList)
 
 //Defino variables locales, deshabilito los botones, cargo los datos del LocalStorage, y los muestro
 
@@ -41,7 +41,7 @@ var searchButton = document.getElementById('searchStudentButton')
 addStudentsFromLocalStorage()
 
 function addStudentsFromLocalStorage () {
-  var localStudentsList = localStorage.getItem('studentList')
+  var localStudentsList = localStorage.getItem('studentsList')
   if (localStudentsList) {
     parsedStudentsList = JSON.parse(localStudentsList)
   } else {
@@ -343,9 +343,9 @@ addButton.onclick = function (event) {
   parsedStudentsList.push({ firstName, lastName, dni, email })
   var stringfiedStudents = JSON.stringify(parsedStudentsList)
   localStorage.setItem('studentsList', stringfiedStudents)
-  var localStudentsList = localStorage.getItem('studentList')
+  var localStudentsList = localStorage.getItem('studentsList')
   var strStudentList = JSON.stringify(parsedStudentsList)
-  localStorage.setItem('studentList', strStudentList)
+  localStorage.setItem('studentsList', strStudentList)
   var listContainer = document.getElementById('mainList')
   while (listContainer.hasChildNodes()) {
     listContainer.removeChild(listContainer.firstChild)
@@ -369,7 +369,7 @@ deleteButton.onclick = function (event) {
   }
   deleteStudent(dniHit)
   var stringfiedStudents = JSON.stringify(parsedStudentsList)
-  localStorage.setItem('studentList', stringfiedStudents)
+  localStorage.setItem('studentsList', stringfiedStudents)
 
   var listContainer = document.getElementById('mainList')
   while (listContainer.hasChildNodes()) {
