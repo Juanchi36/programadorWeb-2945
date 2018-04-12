@@ -18,6 +18,8 @@ function validateFilelds () {
   var validField = $('.is-valid')
   if (validField && validField.length === 3) {
     $('#submitButton').attr('disabled', false)
+  } else {
+    $('#submitButton').attr('disabled', true)
   }
 }
 
