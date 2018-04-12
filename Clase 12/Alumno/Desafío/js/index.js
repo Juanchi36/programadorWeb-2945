@@ -1,12 +1,3 @@
-// # Crear un formulario que valide campos antes de enviar la información
-
-// - El formulario deberá contar con los siguientes campos y validarlos cada vez que el usuario pierda el foco usando jQuery para manipular el DOM.
-//    - Nombre: Deberá tener contenido.
-//    - Email: Deberá contener arroba, punto y contenido.
-//    - Comentarios: Deberá tener contenido.
-
-// Si existe algún error deberá mostrar el campo en rojo
-
 $('#submitButton').attr('disabled', true)
 var inputTextNodes = $('.form-control')
 inputTextNodes.blur(function (event) {
