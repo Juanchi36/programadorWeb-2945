@@ -26,9 +26,11 @@ emailNodes.blur(function (event) {
   ) {
     emailNode.removeClass('is-valid')
     emailNode.addClass('is-invalid')
+    $('p').text('Email inválido')
   } else {
     emailNode.removeClass('is-invalid')
     emailNode.addClass('is-valid')
+    $('p').text('')
   }
   validateFilelds()
 })
