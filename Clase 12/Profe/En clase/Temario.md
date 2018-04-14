@@ -3,11 +3,13 @@
 - ¿Qué es jQuery?
 - ¿Para que sirve?
 - ¿Como descargarlo e incluirlo en el proyecto?
-   - Minificado vs no comprimido
-- Repaso de operaciones básicas con jQuery
-   - `click`
-   - `blur`
-   - `addClass`
-   - `removeClass`
-   - `.val()``
-   - `this`
+- Minificado vs no minificado
+- Interacciones básicas con el DOM y eventos en jQuery
+   - `$(document).ready()`
+   - `$(<ELEMENT>).click()`
+   - `$(<ELEMENT>).blur()`
+   - `$(<ELEMENT>).addClass()`
+   - `$(<ELEMENT>).removeClass()`
+   - `$(<ELEMENT>).hasClass()`
+   - `$(<ELEMENT>).val()`
+   - `$(this)`
