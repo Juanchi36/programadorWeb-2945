@@ -1,0 +1,16 @@
+// # Mostrar un contandor
+
+// - El contador deberá:
+//    - Empezar en cero.
+//    - Si el usuario presiona Enter tiene que empezar de nuevo.
+//    - Sumar uno si el usuario presiona arriba.
+//    - Restar uno si el usuario presiona abajo.
+
+// [Evento keydown jQuery](https://api.jquery.com/keydown/)
+
+$(document).ready(function () {
+  $(window).keypress(function (event) {
+    var value = $(this).val()
+    console.log(event)
+  })
+})
