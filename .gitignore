@@ -3,7 +3,8 @@
 .DS_Store
 /**/.DS_Store
 
-/node_modules
+/**/node_modules
+/**/bower_components
 /package-lock.jsonç
 /Teoria plataforma
 /Workshop Final

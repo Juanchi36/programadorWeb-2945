@@ -35,10 +35,14 @@ $('input[type="email"]').blur(function () {
     errorText = REQUIRED_FIELD
   } else if (typeof value !== 'string') {
     errorText = ERROR_TYPE + 'String'
-  } else if (value.indexOf('@') === -1) {
-    errorText = REQUIRED_CARACTER + 'arroba @'
-  } else if (value.indexOf('.') === -1) {
-    errorText = REQUIRED_CARACTER + 'punto .'
+  }
+
+  if (value.indexOf('@') === -1) {
+    errorText = errorText + ', ' + REQUIRED_CARACTER + 'arroba @'
+  }
+
+  if (value.indexOf('.') === -1) {
+    errorText = errorText + ', ' + REQUIRED_CARACTER + 'punto .'
   }
 
   if (!errorText) {
