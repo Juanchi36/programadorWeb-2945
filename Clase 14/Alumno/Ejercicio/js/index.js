@@ -9,8 +9,31 @@
 // [Evento keydown jQuery](https://api.jquery.com/keydown/)
 
 $(document).ready(function () {
-  $(window).keypress(function (event) {
-    var value = $(this).val()
-    console.log(event)
+  $(window).keydown(function (event) {
+    var valueCount = event.which
+
+    switch (valueCount) {
+      case 13:
+        var numero = $('#counter').html()
+        if (numero && numero !== 00) {
+          numero = '00'
+          $('#counter').html(numero)
+        }
+        break
+      case 38:
+        var numero = $('#counter').html()
+        numeroInt = parseInt(numero)
+        numeroInt = numeroInt + 1
+        $('#counter').html(numeroInt)
+
+        break
+      case 40:
+        var numero = $('#counter').html()
+        numeroInt = parseInt(numero)
+        numeroInt = numeroInt - 1
+        $('#counter').html(numeroInt)
+
+        break
+    }
   })
 })
