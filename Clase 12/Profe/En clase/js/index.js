@@ -71,14 +71,14 @@ inputTextNodes.blur(function (event) {
 
   var value = inputTextNode.val()
 
+  inputTextNode.next().remove()
+
   if (value) {
     inputTextNode.removeClass('is-invalid')
     inputTextNode.addClass('is-valid')
 
     // firstNameNode.classList.remove('is-invalid')
     // firstNameNode.classList.add('is-valid')
-
-    inputTextNode.next().remove()
   } else {
     inputTextNode.removeClass('is-valid')
     inputTextNode.addClass('is-invalid')
