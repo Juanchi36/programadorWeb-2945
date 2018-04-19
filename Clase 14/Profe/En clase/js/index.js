@@ -2,52 +2,52 @@
 
 var REQUIRED_FIELD = 'Campo obligatorio'
 
-// $(document).ready(function () {
-//   $('#submitButton').on('click', function () {
-//     console.log('Click en ', this.id)
-//   })
+$(document).ready(function () {
+  // $('#submitButton').on('click', function () {
+  //   console.log('Click en ', this.id)
+  // })
 
-//   // $('#firstName').on('change', function () {
-//   //   console.log('Cambio en ', $(this).val())
-//   // })
+  // $('#firstName').on('change', function () {
+  //   console.log('Cambio en ', $(this).val())
+  // })
 
-//   // $('#firstName').change(function () {
-//   //   console.log('Cambio en ', $(this).val())
-//   // })
+  // $('#firstName').change(function () {
+  //   console.log('Cambio en ', $(this).val())
+  // })
 
-//   // $('#firstName').on('input', function () {
-//   //   console.log('Cambio en ', $(this).val())
-//   // })
+  // $('#firstName').on('input', function () {
+  //   console.log('Cambio en ', $(this).val())
+  // })
 
-//   $('#firstName').one('blur', function () {
-//     var inputNode = $(this)
+  $('#firstName').one('blur', function () {
+    var inputNode = $(this)
 
-//     validateField(inputNode)
+    validateField(inputNode)
 
-//     $('#firstName').on('input', function () {
-//       var inputNode = $(this)
+    $('#firstName').on('input', function () {
+      var inputNode = $(this)
 
-//       validateField(inputNode)
-//     })
-//   })
-// })
+      validateField(inputNode)
+    })
+  })
+})
 
-// function validateField (inputNode) {
-//   var value = inputNode.val()
+function validateField (inputNode) {
+  var value = inputNode.val()
 
-//   inputNode.next().remove()
+  inputNode.next().remove()
 
-//   if (value) {
-//     inputNode.removeClass('is-invalid')
-//     inputNode.addClass('is-valid')
-//   } else {
-//     inputNode.removeClass('is-valid')
-//     inputNode.addClass('is-invalid')
+  if (value) {
+    inputNode.removeClass('is-invalid')
+    inputNode.addClass('is-valid')
+  } else {
+    inputNode.removeClass('is-valid')
+    inputNode.addClass('is-invalid')
 
-//     var parentNode = inputNode.parent()
-//     parentNode.append('<span class="text-danger">' + REQUIRED_FIELD + '</span>')
-//   }
-// }
+    var parentNode = inputNode.parent()
+    parentNode.append('<span class="text-danger">' + REQUIRED_FIELD + '</span>')
+  }
+}
 
 // Eventos en teclas
 
@@ -90,13 +90,13 @@ var REQUIRED_FIELD = 'Campo obligatorio'
 //   })
 // })
 
-$(document).ready(function () {
-  // $('#searchInput').blur(function (event) {
-  //   var buttonNode = $(this)
-  //   console.log('Target del evento', event.target.value)
-  //   // console.log('This ', this.val())
-  //   console.log('$(this) ', buttonNode.val())
+// $(document).ready(function () {
+//   // $('#searchInput').blur(function (event) {
+//   //   var buttonNode = $(this)
+//   //   console.log('Target del evento', event.target.value)
+//   //   // console.log('This ', this.val())
+//   //   console.log('$(this) ', buttonNode.val())
 
-  // })
-  $('#pato').html('<span>40</span>')
-})
+//   // })
+//   $('#pato').html('<span>40</span>')
+// })

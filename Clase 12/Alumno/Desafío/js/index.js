@@ -1,3 +1,4 @@
+console.log('puto')
 $('#submitButton').attr('disabled', true)
 var inputTextNodes = $('.form-control')
 
