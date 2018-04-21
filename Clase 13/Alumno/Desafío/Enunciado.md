@@ -1,4 +1,4 @@
-# Mostrar una table de personajes usando jQuery
+# Mostrar una tabla de personajes usando jQuery
 
 - La tabla tiene que tener un formato similar al de ejemplo del `index.html`, mostrando para cada personaje:
    - Nombre
