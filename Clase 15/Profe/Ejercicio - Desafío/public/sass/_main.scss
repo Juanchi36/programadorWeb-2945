@@ -1,0 +1,15 @@
+@font-face {
+  font-family: Starwars;
+  src: local("Starwars"), url(../fonts/Starjedi.ttf);
+  font-weight: bold;
+}
+
+body {
+  font-family: 'Starwars';
+  letter-spacing: 2px;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../img/starWarsVertical.jpg);
+  background-position: 50% 25%;
+  background-size: cover;
+}

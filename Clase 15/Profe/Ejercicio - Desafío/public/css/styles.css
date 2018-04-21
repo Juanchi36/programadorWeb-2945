@@ -1,0 +1,16 @@
+@import url(../bower_components/bootstrap/dist/css/bootstrap.min.css);
+@font-face {
+  font-family: Starwars;
+  src: local("Starwars"), url(../fonts/Starjedi.ttf);
+  font-weight: bold;
+}
+/* line 7, ../sass/_main.scss */
+body {
+  font-family: 'Starwars';
+  letter-spacing: 2px;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../img/starWarsVertical.jpg);
+  background-position: 50% 25%;
+  background-size: cover;
+}

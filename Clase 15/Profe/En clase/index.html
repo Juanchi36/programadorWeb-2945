@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  <script
+  src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
   crossorigin="anonymous"></script>
@@ -35,28 +37,28 @@
       <article class="wrapper">
         <h1 class="main-title">Regular Updates</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita est quisquam labore recusandae.</p>
-        <form class="buscador">
+        <form class="buscador" style="display: none">
             <input type="text" placeholder="Enter your domain name an hit enter">
           <button type="submit"><i class="fa fa-search"></i> SEARCH</button>
         </form>
-        <section class="servicios-destacados">
+        <section class="servicios-destacados" id="servicios">
           <article>
-            <img src="images/wid1.png" alt="speed">
+            <img src="images/wid1.png" alt="speed" class="scaleButtonsSmall">
             <h3>SPEED SERVES</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptatum distinctio.</p>
           </article>
           <article>
-            <img src="images/wid2.png" alt="services">
+            <img src="images/wid2.png" alt="services" class="scaleButtonsSmall">
             <h3>HOSTRO SERVICES</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptatum distinctio.</p>
           </article>
           <article>
-            <img src="images/wid3.png" alt="support">
+            <img src="images/wid3.png" alt="support" class="scaleButtonsSmall">
             <h3>LIVE SUPPORT</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptatum distinctio.</p>
           </article>	
           <article>
-            <img src="images/wid4.png" alt="domain">
+            <img src="images/wid4.png" alt="domain" class="scaleButtonsSmall">
             <h3>GET DOMAIN NAME</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptatum distinctio.</p>
           </article>
@@ -101,15 +103,15 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum quisquam, odit aperiam recusandae repudiandae inventore.</p>
           </article>
         </section>
-        <div class="cleaner"></div>	
+        <div class="cleaner" ></div>	
       </article>
     </section>
-    <section class="contenedor-secundario">
+    <section class="contenedor-secundario"  id="precios">
       <div class="wrapper">
         <div class="cleaner"></div>	
         <h2 class="subtitle sub-dos">Piricing Tables</h2>
         <p>Some text, some text</p>
-        <section class="precios">
+        <section class="precios" >
           <div class="cuadros">
             <h3>SMALL PACKAGE</h3>
             <h4 class="precio"><sup>$</sup>15<sup>.9</sup></h4>
@@ -217,27 +219,27 @@
       </div>
     </footer> 
         <!-- Parallax -->
-    <!-- <div id="background1">
-        <img src="./images/starWarsVertical.jpg" alt="starWarsVertical"/>
+    <div id="background1">
+        <img src="./images/starWarsVertical.jpg" alt="starWarsVertical" class="parallaxText-img"/>
     </div>
     <div id="background2">
         <div class="imageLeft">
-            <img src="./images/starWarsShip1.png" alt="starWarsShip1"/>
+            <img src="./images/starWarsShip1.png" alt="starWarsShip1" class="parallaxText-img"/>
         </div>
         <div class="imageRight">
-            <img src="./images/starWarsShip2.png" alt="starWarsShip2"/>
+            <img src="./images/starWarsShip2.png" alt="starWarsShip2" class="parallaxText-img"/>
         </div>
         <div class="imageLeft">
-            <img src="./images/starWarsShip1.png" alt="starWarsShip3"/>
+            <img src="./images/starWarsShip1.png" alt="starWarsShip3" class="parallaxText-img"/>
         </div>
         <div class="imageRight">
-            <img src="./images/starWarsShip2.png" alt="starWarsShip4"/>
+            <img src="./images/starWarsShip2.png" alt="starWarsShip4" class="parallaxText-img"/>
         </div>
         <div class="imageLeft">
-            <img src="./images/starWarsShip1.png" alt="starWarsShip5"/>
+            <img src="./images/starWarsShip1.png" alt="starWarsShip5" class="parallaxText-img"/>
         </div>
         <div class="imageRight">
-            <img src="./images/starWarsShip2.png" alt="starWarsShip6"/>
+            <img src="./images/starWarsShip2.png" alt="starWarsShip6" class="parallaxText-img"/>
         </div>
     </div>
     <div id="background3">
@@ -248,7 +250,7 @@
                 Leia has sent her most daring pilot on a secret mission to Jakku, where an old ally has discovered a clue to Luke's whereabouts....
             </p>
         </div>
-    </div> -->
+    </div>
 
   <script src="./js/index.js"></script>
 </body>

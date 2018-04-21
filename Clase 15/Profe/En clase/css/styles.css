@@ -139,9 +139,10 @@ header article nav a {
 .servicios-destacados article h3 {
   margin-top: 30px;
 }
-.servicios-destacados article img {
-  transition: transform 250ms ease-in;
-  -webkit-transition: transform 250ms ease-in;
+.scaleButtonsSmall {
+  transform: scale(0);
+  /* transition: transform 1000ms ease-in;
+  -webkit-transition: transform 1000ms ease-in; */
 }
 /* .servicios-destacados article:hover img {
   transform: rotate(360deg) scale(1.2);
@@ -150,6 +151,14 @@ header article nav a {
   box-shadow: 0 0 12px black;
   border-radius: 50%;
 } */
+
+.scaleButtons {
+  transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transition: transform 1000ms ease-in;
+  -webkit-transition: transform 1000ms ease-in;
+}
 .caracteristicas {
   float: left;
   width: 30%;
@@ -210,6 +219,7 @@ header article nav a {
 .cuadros {
   width: 20%;
   float: left;
+  opacity: 0;
   text-align: center;
   margin: 80px 2.5% 120px;
   padding-top: 30px;
@@ -742,6 +752,6 @@ header article nav a {
   font-family: 'Starwars' !important;
 }
 
-img {
+.parallaxText-img {
   width: 100%;
 }
