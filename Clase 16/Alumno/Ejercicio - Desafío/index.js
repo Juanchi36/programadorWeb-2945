@@ -1,5 +1,5 @@
-var url = 'https://swapi.co/api/planets/'
 $(document).ready(function () {
+  var url = 'https://swapi.co/api/planets/'
   getData(url)
 
   function getData (url) {
