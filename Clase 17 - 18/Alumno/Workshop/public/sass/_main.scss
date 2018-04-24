@@ -13,3 +13,11 @@ body {
   background-position: 50% 25%;
   background-size: cover;
 }
+
+#savePeople {
+  background-color: green;
+  border-color: green;
+}
+#savePeople:focus {
+  box-shadow: 0 0 0 0.2rem rgba(30, 255, 0, 0.5);
+}

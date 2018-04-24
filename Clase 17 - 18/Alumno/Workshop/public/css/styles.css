@@ -14,3 +14,14 @@ body {
   background-position: 50% 25%;
   background-size: cover;
 }
+
+/* line 17, ../sass/_main.scss */
+#savePeople {
+  background-color: green;
+  border-color: green;
+}
+
+/* line 21, ../sass/_main.scss */
+#savePeople:focus {
+  box-shadow: 0 0 0 0.2rem rgba(30, 255, 0, 0.5);
+}
