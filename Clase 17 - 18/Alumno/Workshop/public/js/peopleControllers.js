@@ -7,236 +7,137 @@ $(document).ready(function () {
       .fadeIn(300)
   })
 
-  var caracters = [
-    {
-      name: 'Luke Skywalker',
-      height: '172',
-      mass: '77',
-      hair_color: 'blond',
-      skin_color: 'fair',
-      eye_color: 'blue',
-      birth_year: '19BBY',
-      gender: 'male',
-      homeworld: 'https://swapi.co/api/planets/1/',
-      films: [
-        'https://swapi.co/api/films/2/',
-        'https://swapi.co/api/films/6/',
-        'https://swapi.co/api/films/3/',
-        'https://swapi.co/api/films/1/',
-        'https://swapi.co/api/films/7/'
-      ],
-      species: [ 'https://swapi.co/api/species/1/' ],
-      vehicles: [
-        'https://swapi.co/api/vehicles/14/',
-        'https://swapi.co/api/vehicles/30/'
-      ],
-      starships: [
-        'https://swapi.co/api/starships/12/',
-        'https://swapi.co/api/starships/22/'
-      ],
-      created: '2014-12-09T13:50:51.644000Z',
-      edited: '2014-12-20T21:17:56.891000Z',
-      url: 'https://swapi.co/api/people/1/'
-    },
-    {
-      name: 'C-3PO',
-      height: '167',
-      mass: '75',
-      hair_color: 'n/a',
-      skin_color: 'gold',
-      eye_color: 'yellow',
-      birth_year: '112BBY',
-      gender: 'n/a',
-      homeworld: 'https://swapi.co/api/planets/1/',
-      films: [
-        'https://swapi.co/api/films/2/',
-        'https://swapi.co/api/films/5/',
-        'https://swapi.co/api/films/4/',
-        'https://swapi.co/api/films/6/',
-        'https://swapi.co/api/films/3/',
-        'https://swapi.co/api/films/1/'
-      ],
-      species: [ 'https://swapi.co/api/species/2/' ],
-      vehicles: [],
-      starships: [],
-      created: '2014-12-10T15:10:51.357000Z',
-      edited: '2014-12-20T21:17:50.309000Z',
-      url: 'https://swapi.co/api/people/2/'
-    },
-    {
-      name: 'R2-D2',
-      height: '96',
-      mass: '32',
-      hair_color: 'n/a',
-      skin_color: 'white, blue',
-      eye_color: 'red',
-      birth_year: '33BBY',
-      gender: 'n/a',
-      homeworld: 'https://swapi.co/api/planets/8/',
-      films: [
-        'https://swapi.co/api/films/2/',
-        'https://swapi.co/api/films/5/',
-        'https://swapi.co/api/films/4/',
-        'https://swapi.co/api/films/6/',
-        'https://swapi.co/api/films/3/',
-        'https://swapi.co/api/films/1/',
-        'https://swapi.co/api/films/7/'
-      ],
-      species: [ 'https://swapi.co/api/species/2/' ],
-      vehicles: [],
-      starships: [],
-      created: '2014-12-10T15:11:50.376000Z',
-      edited: '2014-12-20T21:17:50.311000Z',
-      url: 'https://swapi.co/api/people/3/'
-    },
-    {
-      name: 'Darth Vader',
-      height: '202',
-      mass: '136',
-      hair_color: 'none',
-      skin_color: 'white',
-      eye_color: 'yellow',
-      birth_year: '41.9BBY',
-      gender: 'male',
-      homeworld: 'https://swapi.co/api/planets/1/',
-      films: [
-        'https://swapi.co/api/films/2/',
-        'https://swapi.co/api/films/6/',
-        'https://swapi.co/api/films/3/',
-        'https://swapi.co/api/films/1/'
-      ],
-      species: [ 'https://swapi.co/api/species/1/' ],
-      vehicles: [],
-      starships: [ 'https://swapi.co/api/starships/13/' ],
-      created: '2014-12-10T15:18:20.704000Z',
-      edited: '2014-12-20T21:17:50.313000Z',
-      url: 'https://swapi.co/api/people/4/'
-    },
-    {
-      name: 'Leia Organa',
-      height: '150',
-      mass: '49',
-      hair_color: 'brown',
-      skin_color: 'light',
-      eye_color: 'brown',
-      birth_year: '19BBY',
-      gender: 'female',
-      homeworld: 'https://swapi.co/api/planets/2/',
-      films: [
-        'https://swapi.co/api/films/2/',
-        'https://swapi.co/api/films/6/',
-        'https://swapi.co/api/films/3/',
-        'https://swapi.co/api/films/1/',
-        'https://swapi.co/api/films/7/'
-      ],
-      species: [ 'https://swapi.co/api/species/1/' ],
-      vehicles: [ 'https://swapi.co/api/vehicles/30/' ],
-      starships: [],
-      created: '2014-12-10T15:20:09.791000Z',
-      edited: '2014-12-20T21:17:50.315000Z',
-      url: 'https://swapi.co/api/people/5/'
-    },
-    {
-      name: 'Owen Lars',
-      height: '178',
-      mass: '120',
-      hair_color: 'brown, grey',
-      skin_color: 'light',
-      eye_color: 'blue',
-      birth_year: '52BBY',
-      gender: 'male',
-      homeworld: 'https://swapi.co/api/planets/1/',
-      films: [
-        'https://swapi.co/api/films/5/',
-        'https://swapi.co/api/films/6/',
-        'https://swapi.co/api/films/1/'
-      ],
-      species: [ 'https://swapi.co/api/species/1/' ],
-      vehicles: [],
-      starships: [],
-      created: '2014-12-10T15:52:14.024000Z',
-      edited: '2014-12-20T21:17:50.317000Z',
-      url: 'https://swapi.co/api/people/6/'
-    },
-    {
-      name: 'Beru Whitesun lars',
-      height: '165',
-      mass: '75',
-      hair_color: 'brown',
-      skin_color: 'light',
-      eye_color: 'blue',
-      birth_year: '47BBY',
-      gender: 'female',
-      homeworld: 'https://swapi.co/api/planets/1/',
-      films: [
-        'https://swapi.co/api/films/5/',
-        'https://swapi.co/api/films/6/',
-        'https://swapi.co/api/films/1/'
-      ],
-      species: [ 'https://swapi.co/api/species/1/' ],
-      vehicles: [],
-      starships: [],
-      created: '2014-12-10T15:53:41.121000Z',
-      edited: '2014-12-20T21:17:50.319000Z',
-      url: 'https://swapi.co/api/people/7/'
-    },
-    {
-      name: 'R5-D4',
-      height: '97',
-      mass: '32',
-      hair_color: 'n/a',
-      skin_color: 'white, red',
-      eye_color: 'red',
-      birth_year: 'unknown',
-      gender: 'n/a',
-      homeworld: 'https://swapi.co/api/planets/1/',
-      films: [ 'https://swapi.co/api/films/1/' ],
-      species: [ 'https://swapi.co/api/species/2/' ],
-      vehicles: [],
-      starships: [],
-      created: '2014-12-10T15:57:50.959000Z',
-      edited: '2014-12-20T21:17:50.321000Z',
-      url: 'https://swapi.co/api/people/8/'
-    }
-  ]
+  var url = 'https://swapi.co/api/people/'
+  var number = 0
+  var alterNumber = 75
+  id = 0
+  getData(url)
 
-  var showCaracters = function (caracters) {
-    var thNumberNode = $('#th-number')
-    var thNumberValue = parseInt(thNumberNode.html())
-    if (!thNumberValue) {
-      thNumberValue = 0
-    }
+  function getData (url) {
+    $.ajax(url)
+      .done(function (data) {
+        showCaracters(data.results)
 
-    for (var i = 0; i < caracters.length; i++) {
-      thNumberValue++
-      var name = caracters[i].name
-      var gender = traslate(caracters[i].gender)
-      var height = caracters[i].height
-      var eye_color = traslate(caracters[i].eye_color)
-      var mass = caracters[i].mass
-      $('#tableBody').append(
-        '<tr><th scope="row">' +
-          thNumberValue +
-          '</th><td>' +
-          name +
-          '</td><td>' +
-          gender +
-          '</td><td>' +
-          height +
-          ' cm</td><td>' +
-          mass +
-          ' kg</td><td>' +
-          eye_color +
-          '</td><td><button type="button" class="btn btn-primary" id="savePeople">guardar</button></td>  '
-      )
-    }
+        if (data.next) {
+          url = data.next
+          $('#seeMore').one('click', function () {
+            $.ajax(data.next)
+              .done(function (data) {
+                getData(url)
+              })
+              .fail(function () {
+                console.log('Error de comunicación')
+              })
+          })
+        } else {
+          $('#seeMore').attr('disabled', true)
+        }
+      })
+      .fail(function () {
+        console.log('Error de comunicación')
+      })
   }
 
-  showCaracters(caracters)
-})
+  var showCaracters = function (caracters) {
+    for (var i = 0; i < caracters.length; i++) {
+      number++
+      if (number < 75) {
+        if (number === 17 || number === 35 || number === 47) {
+          number++
+        }
 
+        var name = caracters[i].name
+        var gender = traslate(caracters[i].gender)
+        var height = traslateHeightMass(caracters[i].height)
+        var eye_color = traslate(caracters[i].eye_color)
+        var mass = traslateHeightMass(caracters[i].mass)
+        $('#tableBody').append(
+          '<tr id="tr' +
+            number +
+            '"><th scope="row" id="th-number' +
+            number +
+            '">' +
+            number +
+            '</th><td>' +
+            name +
+            '</td><td>' +
+            gender +
+            '</td><td>' +
+            height +
+            ' cm</td><td>' +
+            mass +
+            ' kg</td><td>' +
+            eye_color +
+            '</td><td><button type="button" class="btn btn-primary btn-save" id="' +
+            number +
+            '">guardar</button></td>  '
+        )
+      }
+      if (number === 75) {
+        var gender = traslate(caracters[i].gender)
+        var height = traslateHeightMass(caracters[i].height)
+        var eye_color = traslate(caracters[i].eye_color)
+        var mass = traslateHeightMass(caracters[i].mass)
+
+        $('#tableBody').append(
+          '<tr id="tr47"><th scope="row" id="th-number">' +
+            47 +
+            '</th><td>' +
+            name +
+            '</td><td>' +
+            gender +
+            '</td><td>' +
+            height +
+            ' cm</td><td>' +
+            mass +
+            ' kg</td><td>' +
+            eye_color +
+            '</td><td><button type="button" class="btn btn-primary btn-save" id="47">guardar</button></td>  '
+        )
+      }
+      if (number > 75) {
+        var name = caracters[i].name
+        var gender = traslate(caracters[i].gender)
+        var height = traslateHeightMass(caracters[i].height)
+        var eye_color = traslate(caracters[i].eye_color)
+        var mass = traslateHeightMass(caracters[i].mass)
+        $('#tableBody').append(
+          '<tr id="tr' +
+            alterNumber +
+            '"><th scope="row" id="th-number' +
+            alterNumber +
+            '">' +
+            alterNumber +
+            '</th><td>' +
+            name +
+            '</td><td>' +
+            gender +
+            '</td><td>' +
+            height +
+            ' cm</td><td>' +
+            mass +
+            ' kg</td><td>' +
+            eye_color +
+            '</td><td><button type="button" class="btn btn-primary btn-save" id="' +
+            alterNumber +
+            '">guardar</button></td>  '
+        )
+        alterNumber++
+      }
+    }
+  }
+})
+var traslateHeightMass = function (text) {
+  if (text === 'unknown') {
+    return '?'
+  } else {
+    return text
+  }
+}
 var traslate = function (text) {
   switch (text) {
+    case 'unknown':
+      return 'desconocido'
     case 'male':
       return 'hombre'
     case 'female':
@@ -253,7 +154,78 @@ var traslate = function (text) {
       return 'marron'
     case 'blue-gray':
       return 'azul-gris'
+    case 'black':
+      return 'negro'
+    case 'white':
+      return 'blanco'
+    case 'orange':
+      return 'naranja'
+    case 'hazel':
+      return 'avellana'
+    case 'dark':
+      return 'oscuro'
+    case 'pink':
+      return 'rosa'
+    case 'red, blue':
+      return 'rojo-azul'
+    case 'gold':
+      return 'dorado'
+    case 'green, yellow':
+      return 'verde-amarillo'
     default:
-      return 'no aplica'
+      return text
   }
+}
+$('#root').on('click', function (event) {
+  event.stopImmediatePropagation()
+
+  var urlPeople = 'https://swapi.co/api/people/' + event.target.id
+  $.ajax(urlPeople)
+    .done(function (data) {
+      var comparePeople = localStorage.getItem('peopleList')
+      var parsedComparePeople
+      var nameArray = []
+      if (JSON.parse(comparePeople)) {
+        parsedComparePeople = JSON.parse(comparePeople)
+      } else {
+        parsedComparePeople = []
+      }
+      for (var i = 0; i < parsedComparePeople.length; i++) {
+        var caracterName = parsedComparePeople[i].name
+        nameArray.push(caracterName)
+      }
+      if (nameArray.indexOf(data.name) === -1) {
+        addCaractersInLocalStorage(data)
+        id++
+      }
+    })
+    .fail(function () {
+      console.log('Error de comunicación')
+    })
+  $('#tr' + event.target.id).remove()
+})
+
+function addCaractersInLocalStorage (data) {
+  var localPeople = localStorage.getItem('peopleList')
+  var parsedPeople
+  var caracterObjet = {}
+  if (JSON.parse(localPeople)) {
+    parsedPeople = JSON.parse(localPeople)
+  } else {
+    parsedPeople = []
+  }
+  caracterObjet.id = id
+  var name = data.name
+  caracterObjet.name = name
+  var gender = traslate(data.gender)
+  caracterObjet.gender = gender
+  var height = traslateHeightMass(data.height)
+  caracterObjet.height = height
+  var mass = traslateHeightMass(data.mass)
+  caracterObjet.mass = mass
+  var eye_color = traslate(data.eye_color)
+  caracterObjet.eye_color = eye_color
+  parsedPeople.push(caracterObjet)
+  var stringfiedPeople = JSON.stringify(parsedPeople)
+  localStorage.setItem('peopleList', stringfiedPeople)
 }

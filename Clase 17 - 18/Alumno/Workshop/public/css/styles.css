@@ -16,12 +16,35 @@ body {
 }
 
 /* line 17, ../sass/_main.scss */
-#savePeople {
+.btn-save {
   background-color: green;
   border-color: green;
 }
 
 /* line 21, ../sass/_main.scss */
-#savePeople:focus {
+.btn-save:focus {
   box-shadow: 0 0 0 0.2rem rgba(30, 255, 0, 0.5);
+}
+
+/* line 24, ../sass/_main.scss */
+.btn-save:hover {
+  background-color: #044104;
+  border-color: #044104;
+}
+
+/* line 29, ../sass/_main.scss */
+.btn-erase {
+  background-color: red;
+  border-color: red;
+}
+
+/* line 33, ../sass/_main.scss */
+.btn-erase:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 17, 0, 0.5);
+}
+
+/* line 36, ../sass/_main.scss */
+.btn-erase:hover {
+  background-color: #410b04;
+  border-color: #410b04;
 }

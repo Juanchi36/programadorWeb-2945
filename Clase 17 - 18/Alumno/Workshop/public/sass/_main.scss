@@ -14,10 +14,26 @@ body {
   background-size: cover;
 }
 
-#savePeople {
+.btn-save {
   background-color: green;
   border-color: green;
 }
-#savePeople:focus {
+.btn-save:focus {
   box-shadow: 0 0 0 0.2rem rgba(30, 255, 0, 0.5);
+}
+.btn-save:hover {
+  background-color: rgb(4, 65, 4);
+  border-color: rgb(4, 65, 4);
+}
+
+.btn-erase {
+  background-color: red;
+  border-color: red;
+}
+.btn-erase:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 17, 0, 0.5);
+}
+.btn-erase:hover {
+  background-color: rgb(65, 11, 4);
+  border-color: rgb(65, 11, 4);
 }
