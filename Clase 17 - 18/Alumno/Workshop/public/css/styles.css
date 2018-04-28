@@ -48,3 +48,9 @@ body {
   background-color: #410b04;
   border-color: #410b04;
 }
+
+/* line 41, ../sass/_main.scss */
+#search-form {
+  margin-left: 280px;
+  width: 60%;
+}
